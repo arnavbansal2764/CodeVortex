@@ -1,21 +1,18 @@
-# Define the number of rows for the pyramid
-num_rows = int(input())
+def print_alphabet_pyramid(n):
+    for i in range(1, n + 1):
+        # Print leading spaces
+        print(" " * (n - i), end="")
 
-# Starting alphabet character
-start_char = 'A'
+        # Print alphabets
+        for j in range(1, 2 * i):
+            print(chr(64 + j), end="")
 
-# Outer loop for rows
-for i in range(num_rows):
-    # Print spaces for indentation
-    print(" " * (num_rows - i - 1), end="")
+        # Move to the next line
+        print()
 
-    # Inner loop for printing letters
-    for j in range(i + 1):
-        # Calculate the corresponding letter using ASCII values
-        letter = chr(ord(start_char) + j)
+try:
+    n = int(input("Enter the number of rows for the pyramid: "))
+    print_alphabet_pyramid(n)
+except ValueError:
+    print("Please enter a valid integer.")
 
-        # Print the letter followed by a space
-        print(letter, end=" ")
-
-    # Move to the next line for the next row
-    print()
